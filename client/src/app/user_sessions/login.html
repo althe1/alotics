@@ -1,0 +1,33 @@
+<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+  <div layout="column" layout-align="center center" layout-fill="layout-fill">
+    <div layout="column" class="loginBox md-whiteframe-z1">
+      <md-toolbar>
+        <h2 class="md-toolbar-tools"><span>Login</span></h2>
+      </md-toolbar>
+      <md-content layout="column" class="md-padding">
+        <md-input-container>
+          <label for="email">Email</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 ng-model="loginForm.email"
+                 required="required"
+                 class="form-control">
+        </md-input-container>
+        <md-input-container>
+          <label for="password">Password</label>
+          <input type="password"
+                 name="password"
+                 id="password"
+                 ng-model="loginForm.password"
+                 required="required"
+                 class="form-control">
+        </md-input-container>
+        <div layout="row" layout-align="center center" style="padding-top:20px;">
+          <md-button type="submit" class="md-raised md-primary">Login</md-button>
+          <div flex="flex"></div>
+        </div>
+      </md-content>
+    </div>
+  </div>
+</form>

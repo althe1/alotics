@@ -3,12 +3,13 @@
 
   angular
     .module('alotics')
-    .controller('LoginController', LoginController);
+    .controller('MainController', MainController);
 
   /** @ngInject */
-  function LoginController() {
+  function MainController() {
     var vm = this;
 
-    
+
+
   }
 })();

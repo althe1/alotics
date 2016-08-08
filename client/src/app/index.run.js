@@ -1,19 +1,19 @@
 (function() {
-  'use strict';
+	'use strict';
 
-  angular
+	angular
     .module('alotics')
     .run(runBlock);
 
-  /** @ngInject */
-  function runBlock($log, $rootScope) {
+	/** @ngInject */
+	function runBlock($log, $rootScope, $state) {
 
     $rootScope.$on('auth:login-success', function() {
-      $location.path('/');
+			$state.go('main');
     });
 
     $log.debug('runBlock end');
-    
-  }
+
+	}
 
 })();
