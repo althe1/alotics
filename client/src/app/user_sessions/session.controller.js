@@ -10,9 +10,21 @@
     var vm = this;
 
     $scope.$on('auth:login-error', function(ev, reason) {
-		vm.error = reason.errors[0];
-		$log.error(reason);
-		// TODO: add error to view
+			vm.error = reason.errors[0];
     });
+
+    $scope.$on('auth:registration-email-error', function(ev, reason) {
+		  vm.error = reason.errors.full_messages[0];
+		});
+
+    vm.handleRegBtnClick = function(regForm) {
+      $auth.submitRegistration(regForm)
+        .then(function() {
+          $auth.submitLogin({
+            email: regForm.email,
+            password: regForm.password
+          });
+        });
+    };
   }
 })();

@@ -20,6 +20,12 @@
         controller: 'SessionController',
         controllerAs: 'session'
       })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'app/user_sessions/signup.html',
+        controller: 'SessionController',
+        controllerAs: 'session'
+      })
       .state('routes', {
         url: '/routes',
         templateUrl: 'app/routes/routes.html',

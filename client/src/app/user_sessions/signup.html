@@ -1,8 +1,8 @@
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+<form ng-submit="session.handleRegBtnClick(regForm)" role="form" ng-init="regForm = {}">
   <div layout="column" layout-align="center center" layout-fill="layout-fill">
     <div layout="column" class="loginBox md-whiteframe-z1">
       <md-toolbar>
-        <h2 class="md-toolbar-tools"><span>Login</span></h2>
+        <h2 class="md-toolbar-tools"><span>Signup</span></h2>
       </md-toolbar>
       <md-content layout="column" class="md-padding">
         <md-input-container>
@@ -10,7 +10,7 @@
           <input type="email"
                  name="email"
                  id="email"
-                 ng-model="loginForm.email"
+                 ng-model="regForm.email"
                  required="required"
                  class="form-control">
         </md-input-container>
@@ -19,12 +19,21 @@
           <input type="password"
                  name="password"
                  id="password"
-                 ng-model="loginForm.password"
+                 ng-model="regForm.password"
+                 required="required"
+                 class="form-control">
+        </md-input-container>
+        <md-input-container>
+          <label for="password_confirmation">Password confirmation</label>
+          <input type="password"
+                 name="password_confirmation"
+                 id="password_confirmation"
+                 ng-model="regForm.password_confirmation"
                  required="required"
                  class="form-control">
         </md-input-container>
         <div layout="row" layout-align="center center" style="padding-top:20px;">
-          <md-button type="submit" class="md-raised md-primary">Login</md-button>
+          <md-button type="submit" class="md-raised md-primary">Signup</md-button>
           <div ng-bind="session.error"></div>
           <div flex="flex"></div>
         </div>
