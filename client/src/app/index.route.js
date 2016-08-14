@@ -26,13 +26,7 @@
         controller: 'SessionController',
         controllerAs: 'session'
       })
-      .state('routes', {
-        url: '/routes',
-        templateUrl: 'app/routes/routes.html',
-        controller: 'RouteController',
-        controllerAs: 'route'
-      })
-      .state('routes.points', {
+      .state('main.routes.points', {
         url: '/:route_id',
         templateUrl: 'app/points/points.html',
         controller: 'PointController',

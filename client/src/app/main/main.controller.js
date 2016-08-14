@@ -2,14 +2,20 @@
   'use strict';
 
   angular
-    .module('alotics')
-    .controller('MainController', MainController);
+	.module('alotics')
+	.controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
-    var vm = this;
+  function MainController($http) {
+	var vm = this;
 
-
+	//TODO: check if logged in
+	$http.get('/api/routes')
+		.then(function(routes) {
+			vm.routes = routes.data;
+		}, function(err) {
+			vm.error = err;
+		});
 
   }
 })();
