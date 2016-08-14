@@ -8,19 +8,19 @@ class RoutesController < ApplicationController
   end
 
   def show
-    respond_with Route.find(params[:id])
+    render json: Route.find(params[:id])
   end
 
   def create
-    respond_with Route.create(route_params)
+    render json: Route.create(route_params)
   end
 
   def update
-    respond_with Route.update(params[:id])
+    render json: Route.update(params[:id])
   end
 
   def destroy
-    respond_with Route.destroy(params[:id])
+    render json: Route.destroy(params[:id])
   end
 
   private
