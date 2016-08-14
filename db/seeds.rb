@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Route.create(name: "abc", pickup_time: Time.now, dropoff_time: Time.now + 10.days)
+Point.create(company_name: "abc", address: "123 Fake rd.", phone: "8185553333", email: "abc@example.com", pick_or_drop: "pick", date: Time.now)
