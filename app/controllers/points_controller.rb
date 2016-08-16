@@ -24,7 +24,7 @@ class PointsController < ApplicationController
   end
 
   private
-  
+
   def point_params
     params.require(:point).permit(:company_name, :address, :phone, :email, :pick_or_drop, :date )
   end

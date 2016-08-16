@@ -10,14 +10,14 @@
 				 required="required"
 				 class="form-control">
 	<label for="pickup-time">Pickup Time</label>
-	<input type="time"
+	<input type="datetime-local"
 				 name="pickup-time"
 				 id="pickup-time"
 				 ng-model="route.routeForm.pickup_time"
 				 required="required"
 				 class="form-control">
 	<label for="dropoff-time">Dropoff Time</label>
-	<input type="time"
+	<input type="datetime-local"
 				 name="dropoff-time"
 				 id="dropoff-time"
 				 ng-model="route.routeForm.dropoff_time"
@@ -44,11 +44,11 @@
 				<span ng-show="route.editData[r.id]"><input type="text" ng-model="r.name" required></span>
 			</td>
 			<td>
-				<span ng-hide="route.editData[r.id]">{{r.pickup_time | date : 'shortTime'}}</span>
+				<span ng-hide="route.editData[r.id]">{{r.pickup_time | date : 'short'}}</span>
 				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.pickup_time" date-format required></span>
 			</td>
 			<td>
-				<span ng-hide="route.editData[r.id]">{{r.dropoff_time | date : 'shortTime'}}</span>
+				<span ng-hide="route.editData[r.id]">{{r.dropoff_time | date : 'short'}}</span>
 				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.dropoff_time" date-format required></span>
 			</td>
 			<td>
