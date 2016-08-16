@@ -40,7 +40,7 @@ class RoutesController < ApplicationController
   private
 
   def route_params
-    params.require(:route).permit(:id, :name, :pickup_time, :dropoff_time)
+    params.require(:route).permit(:name, :pickup_time, :dropoff_time)
   end
 
 end
