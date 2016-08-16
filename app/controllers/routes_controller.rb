@@ -1,5 +1,4 @@
 class RoutesController < ApplicationController
-
   respond_to :json
 
   def index
@@ -39,7 +38,7 @@ class RoutesController < ApplicationController
   private
   
   def route_params
-    params.require(:route).permit(:name, :pickup_time, :dropoff_time)
+    params.permit(:name, :pickup_time, :dropoff_time)
   end
 
 end
