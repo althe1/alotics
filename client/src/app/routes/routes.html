@@ -1,1 +1,62 @@
-<h1>Routes</h1>
+<br>
+<button type="button" ng-click="route.showForm = true">Add Route</button>
+<br><br>
+<form ng-submit="route.submitRoute()" ng-show="route.showForm">
+	<label for="name">Name</label>
+  <input type="text"
+         name="name"
+         id="name"
+         ng-model="route.routeForm.name"
+         required="required"
+         class="form-control">
+  <label for="pickup-time">Pickup Time</label>
+  <input type="datetime-local"
+         name="pickup-time"
+         id="pickup-time"
+         ng-model="route.routeForm.pickup_time"
+         required="required"
+         class="form-control">
+  <label for="dropoff-time">Dropoff Time</label>
+  <input type="datetime-local"
+         name="dropoff-time"
+         id="dropoff-time"
+         ng-model="route.routeForm.dropoff_time"
+         required="required"
+         class="form-control">
+	<button type="submit">Save</button>
+	<button type="button" ng-click="route.showForm = false">Cancel</button>
+</form>
+<br>
+
+<table cellpadding="20">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Pickup Time</th>
+			<th>Dropoff Time</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="r in route.routes">
+			<td>
+				<span ng-hide="route.editData[r.id]">{{r.name}}</span>
+				<span ng-show="route.editData[r.id]"><input type="text" ng-model="r.name" required></span>
+			</td>
+			<td>
+				<span ng-hide="route.editData[r.id]">{{r.pickup_time | date : 'shortTime'}}</span>
+				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.pickup_time" required></span>
+			</td>
+			<td>
+				<span ng-hide="route.editData[r.id]">{{r.dropoff_time | date : 'shortTime'}}</span>
+				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.dropoff_time" required></span>
+			</td>
+			<td>
+				<button ng-hide="route.editData[r.id]" type="button" ng-click="route.editData[r.id] = true">Edit</button>
+				<button ng-hide="route.editData[r.id]" type="button" ng-click="route.deleteRoute(r.id)">Delete</button>
+				<button ng-show="route.editData[r.id]" type="button" ng-click="route.updateRoute(r)">Update</button>
+				<button ng-show="route.editData[r.id]" type="button" ng-click="route.editData[r.id] = false">Cancel</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -9,7 +9,7 @@
 	function runBlock($log, $rootScope, $state) {
 
     $rootScope.$on('auth:login-success', function() {
-			$state.go('main');
+			$state.go('main.routes');
     });
 
     $log.debug('runBlock end');

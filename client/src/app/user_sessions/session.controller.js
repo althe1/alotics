@@ -10,6 +10,7 @@
     var vm = this;
 
     $scope.$on('auth:login-error', function(ev, reason) {
+      $log.log(reason);
 			vm.error = reason.errors[0];
     });
 
