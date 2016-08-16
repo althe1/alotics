@@ -1,13 +1,13 @@
 (function() {
-  'use strict';
+	'use strict';
 
-  angular
-	.module('alotics')
-	.controller('MainController', MainController);
+	angular
+		.module('alotics')
+		.controller('MainController', MainController);
 
-  /** @ngInject */
-  function MainController() {
-	var vm = this;
+	/** @ngInject */
+	function MainController() {
+		var vm = this;
 
-  }
+	}
 })();

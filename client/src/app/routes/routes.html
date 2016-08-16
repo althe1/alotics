@@ -3,26 +3,26 @@
 <br><br>
 <form ng-submit="route.submitRoute()" ng-show="route.showForm">
 	<label for="name">Name</label>
-  <input type="text"
-         name="name"
-         id="name"
-         ng-model="route.routeForm.name"
-         required="required"
-         class="form-control">
-  <label for="pickup-time">Pickup Time</label>
-  <input type="time"
-         name="pickup-time"
-         id="pickup-time"
-         ng-model="route.routeForm.pickup_time"
-         required="required"
-         class="form-control">
-  <label for="dropoff-time">Dropoff Time</label>
-  <input type="time"
-         name="dropoff-time"
-         id="dropoff-time"
-         ng-model="route.routeForm.dropoff_time"
-         required="required"
-         class="form-control">
+	<input type="text"
+				 name="name"
+				 id="name"
+				 ng-model="route.routeForm.name"
+				 required="required"
+				 class="form-control">
+	<label for="pickup-time">Pickup Time</label>
+	<input type="time"
+				 name="pickup-time"
+				 id="pickup-time"
+				 ng-model="route.routeForm.pickup_time"
+				 required="required"
+				 class="form-control">
+	<label for="dropoff-time">Dropoff Time</label>
+	<input type="time"
+				 name="dropoff-time"
+				 id="dropoff-time"
+				 ng-model="route.routeForm.dropoff_time"
+				 required="required"
+				 class="form-control">
 	<button type="submit">Save</button>
 	<button type="button" ng-click="route.showForm = false">Cancel</button>
 </form>
@@ -45,11 +45,11 @@
 			</td>
 			<td>
 				<span ng-hide="route.editData[r.id]">{{r.pickup_time | date : 'shortTime'}}</span>
-				<span ng-show="route.editData[r.id]"><input type="time" ng-model="r.pickup_time" date-format required></span>
+				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.pickup_time" date-format required></span>
 			</td>
 			<td>
 				<span ng-hide="route.editData[r.id]">{{r.dropoff_time | date : 'shortTime'}}</span>
-				<span ng-show="route.editData[r.id]"><input type="time" ng-model="r.dropoff_time" date-format required></span>
+				<span ng-show="route.editData[r.id]"><input type="datetime-local" ng-model="r.dropoff_time" date-format required></span>
 			</td>
 			<td>
 				<button ng-hide="route.editData[r.id]" type="button" ng-click="route.editData[r.id] = true">Edit</button>
