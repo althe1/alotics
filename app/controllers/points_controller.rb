@@ -37,7 +37,7 @@ class PointsController < ApplicationController
   end
 
   private
-  
+
   def point_params
     params.permit(:company_name, :address, :phone, :email, :pick_or_drop, :date )
   end

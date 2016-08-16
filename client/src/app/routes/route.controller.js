@@ -15,15 +15,16 @@
 			vm.routeForm = {};
 			vm.editData = {};
 
-			vm.routes = Route.query();
-
-			vm.routes.forEach(function(route) {
-				vm.editingData[route.id] = false;
+			vm.routes = Route.query(function(routes) {
+				routes.forEach(function(route) {
+					vm.editData[route.id] = false;
+				});
 			});
 
 			vm.deleteRoute = function(id) {
 				if (confirm('Are you sure?')) {
 					Route.remove({ id: id }, function() {
+						delete vm.editData[id];
 						vm.routes = vm.routes.filter(function(route) {
 							return route.id !== id;
 						});
@@ -32,17 +33,24 @@
 			};
 
 			vm.submitRoute = function() {
-				Route.save(vm.routeForm, function(data) {
+				Route.save(vm.routeForm, function(route) {
 					vm.showForm = false;
-					vm.routes.push(data);
+					vm.editData[route.id] = false;
+					vm.routes.push(route);
 					vm.routeForm = {};
 				});
 			};
 
-			vm.updateRoute = function(route) {
-				Route.update(route);
+			vm.updateRoute = function(updatedRoute) {
+				Route.update(updatedRoute, function() {
+					vm.editData[updatedRoute.id] = false;
+					vm.routes.forEach(function(route) {
+						if (updatedRoute.id === route.id) {
+							angular.extend(route, updatedRoute);
+						}
+					});
+				});
 			};
 		}
-
 	}
 })();

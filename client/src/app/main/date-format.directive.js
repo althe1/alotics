@@ -8,10 +8,12 @@
 	/** @ngInject */
 	function dateFormat() {
 		return {
-			require: 'ngModel',
-			link: function(scope, element, attr, ngModelCtrl) {
-				ngModelCtrl.$formatters.length = 0;
-				ngModelCtrl.$parsers.length = 0;
+			restrict : 'A',
+			scope : {
+					ngModel : '='
+			},
+			link: function (scope) {
+				if (scope.ngModel) scope.ngModel = new Date(scope.ngModel);
 			}
 		}
 	}
