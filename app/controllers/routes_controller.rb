@@ -12,11 +12,24 @@ class RoutesController < ApplicationController
   end
 
   def create
-    render json: Route.create(route_params)
+    @route = Route.new(route_params)
+    
+    if @route.save
+      render json: @route
+    else
+      render json: "Error couldn't save route"
+    end
+
   end
 
   def update
-    render json: Route.update(params[:id])
+    @route = Route.find(params[:id])
+
+    if @route.update_attributes(route_params)
+      render json: @route
+    else
+      render json: "Error couldn't update route"
+    end
   end
 
   def destroy

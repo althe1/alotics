@@ -12,11 +12,24 @@ class PointsController < ApplicationController
   end
 
   def create
-    render json: Point.create(point_params)
+    @route = Point.new(point_params)
+    
+    if @point.save
+      render json: @point
+    else
+      render json: "Error couldn't save point"
+    end
+
   end
 
   def update
-    render json: Point.update(params[:id])
+    @point = Point.find(params[:id])
+
+    if @point.update_attributes(point_params)
+      render json: @point
+    else
+      render json: "Error couldn't update point"
+    end
   end
 
   def destroy
