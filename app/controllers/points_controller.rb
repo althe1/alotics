@@ -17,7 +17,7 @@ class PointsController < ApplicationController
     if @point.save
       render json: @point
     else
-      render json: "Error couldn't save point"
+      render json: {Error: "Couldn't save point"}
     end
 
   end
@@ -28,7 +28,7 @@ class PointsController < ApplicationController
     if @point.update_attributes(point_params)
       render json: @point
     else
-      render json: "Error couldn't update point"
+      render json: {Error: "Couldn't update point"}
     end
   end
 

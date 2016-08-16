@@ -16,7 +16,7 @@ class RoutesController < ApplicationController
     if @route.save
       render json: @route
     else
-      render json: "Error couldn't save route"
+      render json: {Error: "Couldn't save route"}
     end
 
   end
@@ -27,7 +27,7 @@ class RoutesController < ApplicationController
     if @route.update_attributes(route_params)
       render json: @route
     else
-      render json: "Error couldn't update route"
+      render json: {Error: "Couldn't update route"}
     end
   end
 
