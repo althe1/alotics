@@ -6,7 +6,7 @@
 
 	/** @ngInject */
 	function RouteService($resource) {
-	  return $resource('/api/routes/:id', null, {
+	  return $resource('/api/routes/:id', { id: '@id' }, {
 	  	update: { method: 'PATCH' }
 	  });
 	}

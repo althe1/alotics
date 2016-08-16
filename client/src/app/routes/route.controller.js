@@ -19,8 +19,6 @@
 
     	vm.routes.forEach(function(route) {
 			  vm.editingData[route.id] = false;
-			  // route.pickup_time = new Date(route.pickup_time);
-			  // route.pickup_time = new Date(route.dropoff_time);
     	});
 
     	vm.deleteRoute = function(id) {
